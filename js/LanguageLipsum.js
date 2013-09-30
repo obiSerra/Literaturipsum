@@ -49,21 +49,22 @@ function LanguageLipsum(callback){
 			text = this.contents[language];
 		}
 		return text;
-	}
+	};
 
 	this.parseContent = function(text,pattern) {
 		var texts = text.split(pattern);
 		return texts;
-	}
+	};
 
 	this.generate = function(type,language,num){
+		var pattern;
 		switch(type){
+			default :
 			case 'paragraph' :
-			default : 
-				var pattern = /[\n]{2}/;
+				pattern = /[\n]{2}/;
 			break;
-			case 'row' : 
-				var pattern = /[\n]{2}/;
+			case 'row' :
+				pattern = /[\n]{2}/;
 			break;
 
 		}
@@ -95,15 +96,14 @@ function LanguageLipsum(callback){
 LanguageLipsum.prototype.getParagraphs = function(language,num){
 	var resp = this.generate('paragraph',language,num);
 	return resp;
-}
+};
 
 
 LanguageLipsum.prototype.getRows = function(language,num){
 	var resp = this.generate('row',language,num);
 	return resp;
-	
-}
+};
 
 LanguageLipsum.prototype.getLanguages = function(){
 	return this.textMapping;
-}
+};
